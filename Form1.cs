@@ -192,6 +192,7 @@ namespace WinFormsApp1
                     }
                 }
 
+                label3.Visible = false;
                 label5.Text = selectedFilePath;
                 iniFile.Write(iniSection, filePathKey, selectedFilePath);
             }
@@ -255,6 +256,7 @@ namespace WinFormsApp1
             if (!string.IsNullOrEmpty(savedFilePath))
             {
                 label5.Text = savedFilePath;
+                label3.Visible = false;
             }
         }
 
@@ -290,6 +292,19 @@ namespace WinFormsApp1
             }
         }
 
+        private void textBox2_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // 检查是否为第一个字符
+            if (textBox2.Text.Length == 0)
+            {
+                // 如果是数字，则不允许输入
+                if (char.IsDigit(e.KeyChar))
+                {
+                    e.Handled = true; // 阻止输入
+                    MessageBox.Show("第一个字符不能是数字", "输入错误", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+        }
     }
 
     public class IniFile

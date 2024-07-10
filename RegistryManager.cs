@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.IO;
 using Microsoft.Win32;
 using Newtonsoft.Json;
@@ -32,7 +33,7 @@ namespace WinFormsApp1
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Error checking .NET runtime: {ex.Message}");
+                Debug.WriteLine($"Error checking .NET runtime: {ex.Message}");
             }
             return false;
         }
@@ -60,22 +61,22 @@ namespace WinFormsApp1
                             string jsonContent = JsonConvert.SerializeObject(base64String, Formatting.Indented);
 
                             File.WriteAllText(filePath, jsonContent);
-                            Console.WriteLine($"注册表值已成功保存到 {filePath}");
+                            Debug.WriteLine($"注册表值已成功保存到 {filePath}");
                         }
                         else
                         {
-                            Console.WriteLine("注册表值为空或不存在。");
+                            Debug.WriteLine("注册表值为空或不存在。");
                         }
                     }
                     else
                     {
-                        Console.WriteLine("指定的注册表项不存在。");
+                        Debug.WriteLine("指定的注册表项不存在。");
                     }
                 }
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Error reading registry and saving to JSON: {ex.Message}");
+                Debug.WriteLine($"Error reading registry and saving to JSON: {ex.Message}");
             }
         }
 
@@ -98,17 +99,17 @@ namespace WinFormsApp1
                     if (key != null)
                     {
                         key.SetValue(RegistryValueName, registryValue, RegistryValueKind.Binary);
-                        Console.WriteLine("注册表值已成功更新。");
+                        Debug.WriteLine("注册表值已成功更新。");
                     }
                     else
                     {
-                        Console.WriteLine("无法打开或创建指定的注册表项。");
+                        Debug.WriteLine("无法打开或创建指定的注册表项。");
                     }
                 }
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Error setting registry value from JSON file: {ex.Message}");
+                Debug.WriteLine($"Error setting registry value from JSON file: {ex.Message}");
             }
         }
     }
