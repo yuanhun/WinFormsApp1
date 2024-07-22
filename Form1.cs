@@ -41,7 +41,7 @@ namespace WinFormsApp1
 
             if (!Directory.Exists(subFolderPath))
             {
-                MessageBox.Show("子文件夹 'UserData' 不存在。");
+                //MessageBox.Show("子文件夹 'UserData' 不存在。");
                 return;
             }
 
@@ -67,7 +67,7 @@ namespace WinFormsApp1
                 return;
             }
 
-            await Task.Delay(200);
+            await Task.Delay(60);
             try
             {
                 // 创建一个新的 ProcessStartInfo 对象，不设置 Verb 属性
@@ -262,7 +262,10 @@ namespace WinFormsApp1
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            if (comboBox1.SelectedItem != null)
+            {
+                textBox2.Text = comboBox1.SelectedItem.ToString();
+            }
         }
 
         private void Form1_Load(object sender, EventArgs e)

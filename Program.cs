@@ -3,6 +3,12 @@ using System.Diagnostics;
 using System.Security.Principal;
 using System.Windows.Forms;
 
+using System.IO;
+using System.Threading.Tasks;
+using YourNamespace;
+
+
+
 namespace WinFormsApp1
 {
     static class Program
@@ -18,10 +24,30 @@ namespace WinFormsApp1
                 return;
             }
 
+            string apiUrl = "https://api.github.com/repos/yuanhun/WinFormsApp1/releases/latest";
+            string lastCheckFilePath = "last_update_check.txt";
+            string downloadDirectory = "downloads";
+
+            if (!Directory.Exists(downloadDirectory))
+            {
+                Directory.CreateDirectory(downloadDirectory);
+            }
+
+            // 启动一个任务来检查更新，而不影响程序启动
+            Task.Run(() => CheckForUpdatesAsync(apiUrl, lastCheckFilePath, downloadDirectory));
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
         }
+
+        private static async Task CheckForUpdatesAsync(string apiUrl, string lastCheckFilePath, string downloadDirectory)
+        {
+            AutoUpdaterService autoUpdater = new AutoUpdaterService(apiUrl, lastCheckFilePath, downloadDirectory);
+            await autoUpdater.CheckForUpdatesAsync();
+        }
+
+
 
         private static bool IsRunAsAdministrator()
         {

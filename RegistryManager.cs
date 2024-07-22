@@ -8,35 +8,11 @@ namespace WinFormsApp1
 {
     public class RegistryManager
     {
-        private const string DotNetCoreKey = @"SOFTWARE\dotnet\Setup\InstalledVersions\x64\sharedfx\Microsoft.NETCore.App";
         private const string RegistryKeyPath = @"Software\miHoYo\绝区零"; // 修改为你的注册表路径
         private const string RegistryValueName = "MIHOYOSDK_ADL_PROD_CN_h3123967166"; // 修改为你的注册表值名称
         private const string SubFolder = "UserData"; // 修改为你的子文件夹名称
         private readonly string baseDirectory = AppDomain.CurrentDomain.BaseDirectory;
 
-        public bool IsDotNet6RuntimeInstalled()
-        {
-            try
-            {
-                using (var key = Registry.LocalMachine.OpenSubKey(DotNetCoreKey))
-                {
-                    if (key == null) return false;
-
-                    foreach (var version in key.GetSubKeyNames())
-                    {
-                        if (version.StartsWith("6.0"))
-                        {
-                            return true;
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                Debug.WriteLine($"Error checking .NET runtime: {ex.Message}");
-            }
-            return false;
-        }
 
         public void ReadRegistryAndSaveToJsonFile(string fileName)
         {
