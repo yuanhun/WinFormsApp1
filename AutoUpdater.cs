@@ -49,11 +49,18 @@ namespace YourNamespace
                                 var latestAsset = releaseInfo.assets[0];
                                 var downloadUrl = latestAsset.browser_download_url;
 
+
                                 try
                                 {
-                                    await DownloadFileAsync(downloadUrl, Path.Combine(downloadDirectory, latestAsset.name));
+                                    //Debug.WriteLine($"AAAAAA: {downloadUrl}");
+                                    string downloadPath = Path.Combine(downloadDirectory, latestAsset.name);
+                                    await DownloadFileAsync(downloadUrl, downloadPath);
 
-                                    var result = MessageBox.Show(
+
+
+                                    if (new FileInfo(downloadPath).Length > 200) // 检查文件是否大于200B
+                                    {
+                                        var result = MessageBox.Show(
                                         $"下载新版本成功。是否更新",
                                         "下载新版本成功",
                                         MessageBoxButtons.YesNo
@@ -80,9 +87,14 @@ namespace YourNamespace
                                         // 确保应用程序退出
                                         Environment.Exit(0);
                                     }
+                                }
+                                else
+                                {
+                                    MessageBox.Show("下载的文件无效（小于200B）。");
+                                }
 
 
-                                    
+
                                 }
                                 catch (Exception ex)
                                 {

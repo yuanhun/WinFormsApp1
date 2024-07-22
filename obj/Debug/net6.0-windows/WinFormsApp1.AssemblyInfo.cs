@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("梦魂启动器")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.1.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+669a0d239eed6e4822d02de7393ad7b8bac71b65")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c3860e8f6c4a8d9c5f75043c1a9d3b82839f647a")]
 [assembly: System.Reflection.AssemblyProductAttribute("梦魂启动器")]
 [assembly: System.Reflection.AssemblyTitleAttribute("梦魂启动器")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.1.0")]
