@@ -78,6 +78,7 @@ namespace YourNamespace
                                                 Verb = "runas" // 以管理员身份运行
                                             };
                                             Process.Start(startInfo);
+                                            UpdateLastCheckTime();
                                         }
                                         else
                                         {
@@ -91,7 +92,10 @@ namespace YourNamespace
                                 else
                                 {
                                     MessageBox.Show("下载的文件无效（小于200B）。");
-                                }
+
+                                        // 确保应用程序退出
+                                        Environment.Exit(0);
+                                    }
 
 
 
@@ -101,10 +105,10 @@ namespace YourNamespace
                                     ShowUpdateFailedMessage(ex.Message);
                                 }
                             }
-                            //else
-                            //{
-                            //    MessageBox.Show("已经是最新版本。");
-                            //}
+                            else
+                            {
+                                Debug.WriteLine("已经是最新版本。");
+                            }
                         }
                         else
                         {
@@ -118,10 +122,10 @@ namespace YourNamespace
                 }
                 UpdateLastCheckTime();
             }
-            //else
-            //{
-            //    Console.WriteLine("今天已经检查过更新。");
-            //}
+            else
+            {
+                Debug.WriteLine("今天已经检查过更新。");
+            }
         }
 
         private bool ShouldCheckForUpdates()

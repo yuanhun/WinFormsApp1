@@ -12,7 +12,7 @@ using System;
 using System.Reflection;
 
 [assembly: System.Reflection.AssemblyCompanyAttribute("梦魂启动器")]
-[assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
+[assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.2.1")]
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+cb96abc9664c4902e87f88942aabfff9ce256d0c")]
 [assembly: System.Reflection.AssemblyProductAttribute("梦魂启动器")]

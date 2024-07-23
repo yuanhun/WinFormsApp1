@@ -105,9 +105,12 @@ namespace WinFormsApp1
             try
             {
                 manager.ReadRegistryAndSaveToJsonFile(filePath);
+                // 将按钮设置为不可用，按钮会变为灰色
+                button2.Enabled = false;
                 button2.Text = "[保存成功]";
                 PopulateComboBoxWithFiles();
                 textBox2.Text = "";
+
             }
             catch (Exception ex)
             {
@@ -117,6 +120,8 @@ namespace WinFormsApp1
 
         private void textBox2_Click(object sender, EventArgs e)
         {
+            // 将按钮设置为可用
+            button2.Enabled = true;
             button2.Text = "保存";
         }
 
@@ -292,20 +297,6 @@ namespace WinFormsApp1
             catch (Exception ex)
             {
                 MessageBox.Show($"Failed to open URL: {ex.Message}");
-            }
-        }
-
-        private void textBox2_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            // 检查是否为第一个字符
-            if (textBox2.Text.Length == 0)
-            {
-                // 如果是数字，则不允许输入
-                if (char.IsDigit(e.KeyChar))
-                {
-                    e.Handled = true; // 阻止输入
-                    MessageBox.Show("第一个字符不能是数字", "输入错误", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
             }
         }
     }

@@ -1,0 +1,7 @@
+I:\WIN10C\Users\mh\Documents\VS2022\WinFormsApp1\bin\Release\net6.0-windows\publish\梦魂启动器.exe
+I:\WIN10C\Users\mh\Documents\VS2022\WinFormsApp1\bin\Release\net6.0-windows\publish\梦魂启动器.dll
+I:\WIN10C\Users\mh\Documents\VS2022\WinFormsApp1\bin\Release\net6.0-windows\publish\梦魂启动器.deps.json
+I:\WIN10C\Users\mh\Documents\VS2022\WinFormsApp1\bin\Release\net6.0-windows\publish\梦魂启动器.runtimeconfig.json
+I:\WIN10C\Users\mh\Documents\VS2022\WinFormsApp1\bin\Release\net6.0-windows\publish\梦魂启动器.dll.config
+I:\WIN10C\Users\mh\Documents\VS2022\WinFormsApp1\bin\Release\net6.0-windows\publish\梦魂启动器.pdb
+I:\WIN10C\Users\mh\Documents\VS2022\WinFormsApp1\bin\Release\net6.0-windows\publish\Newtonsoft.Json.dll

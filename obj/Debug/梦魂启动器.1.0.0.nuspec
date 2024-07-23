@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>梦魂启动器</id>
+    <version>1.0.0</version>
+    <authors>梦魂启动器</authors>
+    <description>Package Description</description>
+    <repository type="git" commit="cb96abc9664c4902e87f88942aabfff9ce256d0c" />
+    <dependencies>
+      <group targetFramework="net6.0-windows7.0">
+        <dependency id="Newtonsoft.Json" version="13.0.3" exclude="Build,Analyzers" />
+      </group>
+    </dependencies>
+    <frameworkReferences>
+      <group targetFramework="net6.0-windows7.0">
+        <frameworkReference name="Microsoft.WindowsDesktop.App.WindowsForms" />
+      </group>
+    </frameworkReferences>
+  </metadata>
+  <files>
+    <file src="I:\WIN10C\Users\mh\Documents\VS2022\WinFormsApp1\bin\Debug\net6.0-windows\梦魂启动器.runtimeconfig.json" target="lib\net6.0-windows7.0\梦魂启动器.runtimeconfig.json" />
+    <file src="I:\WIN10C\Users\mh\Documents\VS2022\WinFormsApp1\bin\Debug\net6.0-windows\梦魂启动器.dll" target="lib\net6.0-windows7.0\梦魂启动器.dll" />
+  </files>
+</package>
