@@ -42,6 +42,7 @@
             label1 = new Label();
             label6 = new Label();
             button5 = new Button();
+            button6 = new Button();
             SuspendLayout();
             // 
             // button1
@@ -193,11 +194,24 @@
             button5.UseVisualStyleBackColor = true;
             button5.Click += button5_Click;
             // 
+            // button6
+            // 
+            button6.Font = new Font("Microsoft YaHei UI", 15F, FontStyle.Regular, GraphicsUnit.Point);
+            button6.Location = new Point(643, 191);
+            button6.Margin = new Padding(4);
+            button6.Name = "button6";
+            button6.Size = new Size(114, 38);
+            button6.TabIndex = 26;
+            button6.Text = "删除";
+            button6.UseVisualStyleBackColor = true;
+            button6.Click += button6_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(765, 438);
+            Controls.Add(button6);
             Controls.Add(label3);
             Controls.Add(button5);
             Controls.Add(label6);
@@ -235,5 +249,6 @@
         private Label label1;
         private Label label6;
         private Button button5;
+        private Button button6;
     }
 }

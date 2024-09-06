@@ -24,6 +24,8 @@ namespace WinFormsApp1
             LoadSwitchServer();
             PopulateComboBoxWithFiles();
             LoadSavedFilePath();
+
+            button6.Enabled = false;
         }
 
         private void LoadSwitchServer()
@@ -53,7 +55,7 @@ namespace WinFormsApp1
         }
 
         private async void button1_Click(object sender, EventArgs e)
-        {   
+        {
             if (!string.IsNullOrEmpty(comboBox1.SelectedItem as string))
             {
                 manager.SetRegistryValueFromJsonFile(comboBox1.SelectedItem.ToString());
@@ -89,7 +91,7 @@ namespace WinFormsApp1
         {
             if (string.IsNullOrEmpty(textBox2.Text.Trim()))
             {
-                MessageBox.Show("请输入有效的文件路径。");
+                MessageBox.Show("报错: 请输入有效的文件路径。");
                 return;
             }
 
@@ -117,6 +119,50 @@ namespace WinFormsApp1
                 MessageBox.Show($"发生错误：{ex.Message}");
             }
         }
+
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(textBox2.Text.Trim()))
+            {
+                MessageBox.Show("报错: 请输入有效的文件路径。");
+                return;
+            }
+
+            string fileName = textBox2.Text.Trim();
+            string subFolderPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "UserData");
+            string filePath = Path.Combine(subFolderPath, fileName);
+
+
+            try
+            {
+                // 删除指定路径下的文件
+                System.IO.File.Delete(filePath);
+                button6.Enabled = false;
+                //MessageBox.Show("文件已成功删除.");
+                PopulateComboBoxWithFiles();
+            }
+            catch (FileNotFoundException)
+            {
+                MessageBox.Show("报错: 指定的文件不存在.");
+            }
+            catch (IOException ex)
+            {
+                // 处理文件正在被使用的异常
+                MessageBox.Show("报错: 无法删除文件: 文件正在使用中.");
+                Console.WriteLine(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                // 其他异常处理
+                MessageBox.Show("报错: 删除文件时发生错误: " + ex.Message);
+            }
+
+
+
+
+        }
+
 
         private void textBox2_Click(object sender, EventArgs e)
         {
@@ -270,6 +316,7 @@ namespace WinFormsApp1
             if (comboBox1.SelectedItem != null)
             {
                 textBox2.Text = comboBox1.SelectedItem.ToString();
+                button6.Enabled = true;
             }
         }
 
@@ -299,6 +346,7 @@ namespace WinFormsApp1
                 MessageBox.Show($"Failed to open URL: {ex.Message}");
             }
         }
+
     }
 
     public class IniFile

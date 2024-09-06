@@ -13,11 +13,11 @@ using System.Reflection;
 
 [assembly: System.Reflection.AssemblyCompanyAttribute("梦魂启动器")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
-[assembly: System.Reflection.AssemblyFileVersionAttribute("1.2.1")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+cb96abc9664c4902e87f88942aabfff9ce256d0c")]
+[assembly: System.Reflection.AssemblyFileVersionAttribute("1.2.2")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ec175e830a522d9ec6d2d9da910bd5ba59ea45ef")]
 [assembly: System.Reflection.AssemblyProductAttribute("梦魂启动器")]
 [assembly: System.Reflection.AssemblyTitleAttribute("梦魂启动器")]
-[assembly: System.Reflection.AssemblyVersionAttribute("1.2.1")]
+[assembly: System.Reflection.AssemblyVersionAttribute("1.2.2")]
 [assembly: System.Runtime.Versioning.TargetPlatformAttribute("Windows7.0")]
 [assembly: System.Runtime.Versioning.SupportedOSPlatformAttribute("Windows7.0")]
 
